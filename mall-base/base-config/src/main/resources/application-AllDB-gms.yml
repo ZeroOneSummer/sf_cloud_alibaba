@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: ${env.datasource.driver-class-name}
+    url: ${env.datasource.gms.url}
+    username: ${env.datasource.gms.username}
+    password: ${env.datasource.gms.password}

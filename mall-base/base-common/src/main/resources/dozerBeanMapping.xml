@@ -1,0 +1,24 @@
+<mappings xmlns="http://dozermapper.github.io/schema/bean-mapping"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozermapper.github.io/schema/bean-mapping http://dozermapper.github.io/schema/bean-mapping.xsd">
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>  <!-- 转换异常终止该字段复制 -->
+        <date-format>yyyy-MM-dd HH:mm:ss</date-format>
+        <wildcard>true</wildcard>
+        <custom-converters>
+            <!-- 指定日期解析器 -->
+            <converter type="com.formssi.mall.common.convert.StrDateConverter" >
+                <class-a>java.lang.String</class-a>
+                <class-b>java.util.Date</class-b>
+            </converter>
+            <converter type="com.formssi.mall.common.convert.LocalDateLongConverter" >
+                <class-a>java.lang.Long</class-a>
+                <class-b>java.time.LocalDate</class-b>
+            </converter>
+            <converter type="com.formssi.mall.common.convert.LocalDateTimeLongConverter" >
+                <class-a>java.time.LocalDateTime</class-a>
+                <class-b>java.lang.Long</class-b>
+            </converter>
+        </custom-converters>
+    </configuration>
+</mappings>

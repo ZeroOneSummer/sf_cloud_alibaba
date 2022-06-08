@@ -1,0 +1,38 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+#  flyway:
+#    locations: classpath:db/pay
+#微信配置
+wx:
+  mch-id: 请填写您的mchId
+  wx-pay-appid: 请填写您的appId
+  mch-serial-no: 商户证书序列号,需要和证书对应
+  api-v3-key: 请填写您的api密钥
+  private-key-path: 请填写您的商户私钥（apiclient_key.pem）所在文件（绝对路径或相对路径）
+  success-return-url: 支付成功页面跳转
+  callback-url: 支付成功，回调通知
+# 支付宝
+alipay:
+  # 应用ID
+  app_id: 2021000119689508
+  # 应用私钥
+  application_alipay_private_key: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCR2ZVjfCjnVKMjU2b4u2G9rroh70d3lMCkWxMmbBixCskd3o8uDw1bp0489UrDojbmPlREMey8Ta0LkPn0eEcN6acj9SpxVLhf6ad5uIe+7o6/i6LdWq140u33aJfxxeV+plP+s4L84S1JntArSMmngUrNHmbR3e9wLVyeizFY665tav/MYoQpLTi2wE1D9vSzB4zbi0yytB8rMXnpwIDLVULo7u26w8+AjnQi/P2HHqUqPVy75ORf4Wivh7OgHqSMSmoRk3emLFaMkzkVR9jZ4ZTzGCu7+Cq5z6LIb33yZ9bM7C36DgbFjarLXPKn0DcNolilDzGUzKvdWQKgtqAnAgMBAAECggEAMypgtQDmnJjdjlQA6Ltbw55bX/JAYRwHJOFqa206kElXWqosEp1nM0MTOGFY9B6hIc614yKciUa6sTcP6QqU6rWQVBX66L0u3T7r6NCqlnm8DEhhP0RDXQKqRsQjocaqBu80wkKZbjtUluIm5zhmveOmqSTEL1WrXPAc8OWlzyp8na/kVsqz2U7WbdTDA0Xr7/ZXEqqJdnpl+TcbFSvhdl1koB/Izzl4J+HgkaFvbO3s85Jd5NomlhbKO7dAW0PKdcwrcuWsLgki9kXq1sn6TeZVhloL6sF4qs/XUYqyR6ZJ8BrifqlHZwIiRfoYwYCMCHi84X19IeyA1NUMz0fTEQKBgQDtJwYCEIPYOFXvRp7/WCYVbQlX2IqirFKfBLVmoQZiyAmTbXD1NBbAdrB1uH18jqyj1FTApU0GfOgPQk38METufJw4/+FvfjOIhhTKoI+LckFmcgNDTFTQYyw0qgrb4hn5Tx+WCIxQvLS4hPlRQe8LBPZwkHPAf8+v6bFtVSP0bwKBgQCdcPfhi0nK1veaW7TuYl5ndt8j/2kQAiEAumMhTLmNrlPhe6S1oM5nOOC9NHuvFjRorAs4/HWZoK811ZBu+iG77DhiAXtZGSMHJ0aqzHP3lETk1wZXNQrhJOp3+tnF5xlehzLtPa6sMwf83Oe5uIeeu7An+Coxp1Nhuy4msIwbyQKBgAe1JvrWMpLKcfCO6Qf/g21a19zlCsxysVS9wG+PeDeprLX/7pXplXu339BTqLBtqqrAcei49qHpWVl1nDdAEl1161Xm6xrGjUI4qWBUi5XKptl/hx+e0XrcXklv5V50IMf7jFlB+d195JnCqJ+9dtly1deeukRdYxCilcOp6rs9AoGAR+T5XOZFOTo28SbllWIYJ/kRZpfQez3toi567A7kQL2Vkkbq7QHUnzBK+DuKK2bhYdcGfOxUK2ZD/Dpc7UCNvQneqWpx0Dr5Ut/tljsszabIWxOR0qrnH+7Cny1O2t9wJ0lnyQw8wme/QwoBSz7nt2WPyIC7i9cT7XITXhmKsXkCgYBZdCGfM3ZafUDblNE2S6QsmohZykxtTlY4gpMu/MF5wPrw9YS8tmq+4LbhobJtdXh5nCFcEfa7RLZBc/ayxcVvn87olEZEH5XDRk8SWtFf0pGtdBm173nf88nl0aMwFbhktr3fSNRmgDVSsshzQ8ic9YmXa0UHX0AiR8J9nDbjPA==
+  # 应用公钥
+  application_alipay_public_key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkdmVY3wo51SjI1Nm+Lthva66Ie9Hd5TApFsTJmwYsQrJHd6PLg8NW6dOPPVKw6I25j5URDHsvE2tC5D59HhHDemnI/UqcVS4X+mnebiHvu6Ov4ui3VqteNLt92iX8cXlfqZT/rOC/OEtSZ7QK0jJp4FKzR5m0d3vcC1cnosxWOuubWr/zGKEKS04tsBNQ/b0sweM24tMsrQfKzF56cCAy1VC6O7tusPPgI50Ivz9hx6lKj1cu+TkX+For4ezoB6kjEpqEZN3pixWjJM5FUfY2eGU8xgru/gquc+iyG998mfWzOwt+g4GxY2qy1zyp9A3DaJYpQ8xlMyr3VkCoLagJwIDAQAB
+  # 支付宝公钥
+  alipay_public_key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzBj5ErQAamNYImwetN4yLZrabe4M+BXlIPNOHfZgg33wW15bktcPw5mQvBXMRZ86QZ2SBzVDFUGBuguyVuhqxIIsZn9id+xIJYiskadhrT3nQmQqlgJSY/ba6IfBK5HgcZQcifHsezFMQuCP3h8CUwwqa21vVAx3JTJqfyrlk4OyRAogV2jVeYfKgp+hkEU2bYic0FmC3CdV/soTxvm9RnQWRlpWcDvg0EwcT0sMTFzQQhuLo3tBnw2yZ74pcDlazumlhaJBufS0gNTmcW2xSWUNUBqSiA17hRhs2e8aD+Db44RInunt9OsbgJ6SGwPAQvTOo41o8YWTEFmmefMCdwIDAQAB
+  # 支付宝网关地址
+  gateway_url: https://openapi.alipaydev.com/gateway.do
+  # 同步回调
+  return_url: http://g4nt8y.natappfree.cc/alipay/returnUrl
+  # 异步回调
+  notify_url: http://g4nt8y.natappfree.cc/alipay/notifyUrl
+  # 返回格式
+  format: json
+  # 字符集
+  charset: utf-8
+  # 签名方式
+  sign_type: RSA2
+  # 保存支付日志的地址
+  log_path: E:/tmp/

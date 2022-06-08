@@ -1,0 +1,17 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+#  flyway:
+#    locations: classpath:db/gms
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #执行日志打印
+
+es:
+  schema: http
+  address: 10.27.0.169:9200
+  connectTimeout: 10000
+  socketTimeout: 20000
+  connectionRequestTimeout : 50000
+  maxConnectNum: 16
+  maxConnectPerRoute: 20

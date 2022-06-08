@@ -1,0 +1,18 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+#  flyway:
+#    locations: classpath:db/ums
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+mall:
+  jwt:
+    secret: jwt_secret___Aa_12345666___~!@#$%^&*()_+
+  minio:
+    preview: http://127.0.0.1:18085/minio/preview/
+    endpoint: http://127.0.0.1:9005
+    bucketName: mall-bucket
+    accessKey: JGY4GS7USA3005IT2KZE
+    secretKey: +VdT+YNCmrMCcCpZ4aSFNzgPcLMXcCCxk8wVq2kn

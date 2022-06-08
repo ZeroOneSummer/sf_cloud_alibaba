@@ -1,0 +1,266 @@
+CREATE TABLE `oms_order_item_t0` (
+  `id` bigint NOT NULL ,
+  `order_id` bigint NOT NULL COMMENT '订单id',
+  `order_sn` varchar(64) NOT NULL COMMENT '订单编号',
+  `spu_sn` varchar(64) NOT NULL COMMENT '商品编号',
+  `spu_name` varchar(255) DEFAULT NULL COMMENT '商品名称',
+  `spu_image` varchar(255) DEFAULT NULL COMMENT '商品图片',
+  `sku_id` varchar(255) NOT NULL COMMENT '产品ID',
+  `price` decimal(12,0) NOT NULL COMMENT '价格',
+  `quantity` decimal(12,0) NOT NULL COMMENT '数量',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+ `user_id` bigint NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`),
+  KEY `idx_order_id` (`order_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单主表';
+
+CREATE TABLE `oms_order_item_t1` (
+  `id` bigint NOT NULL ,
+  `order_id` bigint NOT NULL COMMENT '订单id',
+  `order_sn` varchar(64) NOT NULL COMMENT '订单编号',
+  `spu_sn` varchar(64) NOT NULL COMMENT '商品编号',
+  `spu_name` varchar(255) DEFAULT NULL COMMENT '商品名称',
+  `spu_image` varchar(255) DEFAULT NULL COMMENT '商品图片',
+  `sku_id` varchar(255) NOT NULL COMMENT '产品ID',
+  `price` decimal(12,0) NOT NULL COMMENT '价格',
+  `quantity` decimal(12,0) NOT NULL COMMENT '数量',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+ `user_id` bigint NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`),
+  KEY `idx_order_id` (`order_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单主表';
+
+CREATE TABLE `oms_order_item_t2` (
+  `id` bigint NOT NULL ,
+  `order_id` bigint NOT NULL COMMENT '订单id',
+  `order_sn` varchar(64) NOT NULL COMMENT '订单编号',
+  `spu_sn` varchar(64) NOT NULL COMMENT '商品编号',
+  `spu_name` varchar(255) DEFAULT NULL COMMENT '商品名称',
+  `spu_image` varchar(255) DEFAULT NULL COMMENT '商品图片',
+  `sku_id` varchar(255) NOT NULL COMMENT '产品ID',
+  `price` decimal(12,0) NOT NULL COMMENT '价格',
+  `quantity` decimal(12,0) NOT NULL COMMENT '数量',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+ `user_id` bigint NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`),
+  KEY `idx_order_id` (`order_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单主表';
+
+CREATE TABLE `oms_order_item_t3` (
+  `id` bigint NOT NULL ,
+  `order_id` bigint NOT NULL COMMENT '订单id',
+  `order_sn` varchar(64) NOT NULL COMMENT '订单编号',
+  `spu_sn` varchar(64) NOT NULL COMMENT '商品编号',
+  `spu_name` varchar(255) DEFAULT NULL COMMENT '商品名称',
+  `spu_image` varchar(255) DEFAULT NULL COMMENT '商品图片',
+  `sku_id` varchar(255) NOT NULL COMMENT '产品ID',
+  `price` decimal(12,0) NOT NULL COMMENT '价格',
+  `quantity` decimal(12,0) NOT NULL COMMENT '数量',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+ `user_id` bigint NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`),
+  KEY `idx_order_id` (`order_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单主表';
+
+
+
+CREATE TABLE `oms_order_detail0` (
+  `id` bigint NOT NULL ,
+  `order_id` bigint NOT NULL COMMENT '订单id',
+  `order_sn` varchar(255) NOT NULL COMMENT '订单编号',
+  `receiver_name` varchar(255) DEFAULT NULL COMMENT '收货人',
+  `receiver_area_name` varchar(255) DEFAULT NULL COMMENT '省市区',
+  `receiver_address` varchar(255) DEFAULT NULL COMMENT '详细地址',
+  `receiver_phone` varchar(100) DEFAULT NULL COMMENT '手机',
+  `total_amount` decimal(12,0) NOT NULL COMMENT '总金额',
+  `pay_amount` decimal(12,0) DEFAULT NULL COMMENT '实际支付金额',
+  `freight_amount` decimal(12,0) DEFAULT NULL COMMENT '运费金额',
+  `integration_amount` decimal(12,0) DEFAULT NULL COMMENT '积分抵扣金额',
+  `coupon_amount` decimal(12,0) DEFAULT NULL COMMENT '优惠券抵扣金额',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `expire_time` datetime NOT NULL COMMENT '过期时间',
+  `integration` bigint NOT NULL COMMENT '可获取的积分',
+  `memo` varchar(255) DEFAULT NULL COMMENT '备注',
+  `status` int NOT NULL COMMENT '订单状态，1：待付款，2：待发货，3：待收货，4：已完成',
+  `member_id` bigint NOT NULL COMMENT '会员ID',
+  `bill_type` int DEFAULT NULL COMMENT '发票类型：0->不开发票；1->电子发票；2->纸质发票',
+  `bill_header` varchar(200) DEFAULT NULL COMMENT '发票抬头',
+  `bill_content` varchar(200) DEFAULT NULL COMMENT '发票内容',
+  `bill_receiver_phone` varchar(32) DEFAULT NULL COMMENT '收票人电话',
+  `bill_receiver_email` varchar(64) DEFAULT NULL COMMENT '收票人邮箱',
+  `order_type` int DEFAULT NULL COMMENT '订单类型：0->正常订单；1->秒杀订单',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_order_sn` (`order_sn`) USING BTREE,
+  KEY `idx_member_id` (`member_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单详情';
+
+
+CREATE TABLE `oms_order_detail1` (
+  `id` bigint NOT NULL ,
+  `order_id` bigint NOT NULL COMMENT '订单id',
+  `order_sn` varchar(255) NOT NULL COMMENT '订单编号',
+  `receiver_name` varchar(255) DEFAULT NULL COMMENT '收货人',
+  `receiver_area_name` varchar(255) DEFAULT NULL COMMENT '省市区',
+  `receiver_address` varchar(255) DEFAULT NULL COMMENT '详细地址',
+  `receiver_phone` varchar(100) DEFAULT NULL COMMENT '手机',
+  `total_amount` decimal(12,0) NOT NULL COMMENT '总金额',
+  `pay_amount` decimal(12,0) DEFAULT NULL COMMENT '实际支付金额',
+  `freight_amount` decimal(12,0) DEFAULT NULL COMMENT '运费金额',
+  `integration_amount` decimal(12,0) DEFAULT NULL COMMENT '积分抵扣金额',
+  `coupon_amount` decimal(12,0) DEFAULT NULL COMMENT '优惠券抵扣金额',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `expire_time` datetime NOT NULL COMMENT '过期时间',
+  `integration` bigint NOT NULL COMMENT '可获取的积分',
+  `memo` varchar(255) DEFAULT NULL COMMENT '备注',
+  `status` int NOT NULL COMMENT '订单状态，1：待付款，2：待发货，3：待收货，4：已完成',
+  `member_id` bigint NOT NULL COMMENT '会员ID',
+  `bill_type` int DEFAULT NULL COMMENT '发票类型：0->不开发票；1->电子发票；2->纸质发票',
+  `bill_header` varchar(200) DEFAULT NULL COMMENT '发票抬头',
+  `bill_content` varchar(200) DEFAULT NULL COMMENT '发票内容',
+  `bill_receiver_phone` varchar(32) DEFAULT NULL COMMENT '收票人电话',
+  `bill_receiver_email` varchar(64) DEFAULT NULL COMMENT '收票人邮箱',
+  `order_type` int DEFAULT NULL COMMENT '订单类型：0->正常订单；1->秒杀订单',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_order_sn` (`order_sn`) USING BTREE,
+  KEY `idx_member_id` (`member_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单详情';
+
+
+CREATE TABLE `oms_order_detail2` (
+  `id` bigint NOT NULL ,
+  `order_id` bigint NOT NULL COMMENT '订单id',
+  `order_sn` varchar(255) NOT NULL COMMENT '订单编号',
+  `receiver_name` varchar(255) DEFAULT NULL COMMENT '收货人',
+  `receiver_area_name` varchar(255) DEFAULT NULL COMMENT '省市区',
+  `receiver_address` varchar(255) DEFAULT NULL COMMENT '详细地址',
+  `receiver_phone` varchar(100) DEFAULT NULL COMMENT '手机',
+  `total_amount` decimal(12,0) NOT NULL COMMENT '总金额',
+  `pay_amount` decimal(12,0) DEFAULT NULL COMMENT '实际支付金额',
+  `freight_amount` decimal(12,0) DEFAULT NULL COMMENT '运费金额',
+  `integration_amount` decimal(12,0) DEFAULT NULL COMMENT '积分抵扣金额',
+  `coupon_amount` decimal(12,0) DEFAULT NULL COMMENT '优惠券抵扣金额',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `expire_time` datetime NOT NULL COMMENT '过期时间',
+  `integration` bigint NOT NULL COMMENT '可获取的积分',
+  `memo` varchar(255) DEFAULT NULL COMMENT '备注',
+  `status` int NOT NULL COMMENT '订单状态，1：待付款，2：待发货，3：待收货，4：已完成',
+  `member_id` bigint NOT NULL COMMENT '会员ID',
+  `bill_type` int DEFAULT NULL COMMENT '发票类型：0->不开发票；1->电子发票；2->纸质发票',
+  `bill_header` varchar(200) DEFAULT NULL COMMENT '发票抬头',
+  `bill_content` varchar(200) DEFAULT NULL COMMENT '发票内容',
+  `bill_receiver_phone` varchar(32) DEFAULT NULL COMMENT '收票人电话',
+  `bill_receiver_email` varchar(64) DEFAULT NULL COMMENT '收票人邮箱',
+  `order_type` int DEFAULT NULL COMMENT '订单类型：0->正常订单；1->秒杀订单',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_order_sn` (`order_sn`) USING BTREE,
+  KEY `idx_member_id` (`member_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单详情';
+
+
+CREATE TABLE `oms_order_detail3` (
+  `id` bigint NOT NULL ,
+  `order_id` bigint NOT NULL COMMENT '订单id',
+  `order_sn` varchar(255) NOT NULL COMMENT '订单编号',
+  `receiver_name` varchar(255) DEFAULT NULL COMMENT '收货人',
+  `receiver_area_name` varchar(255) DEFAULT NULL COMMENT '省市区',
+  `receiver_address` varchar(255) DEFAULT NULL COMMENT '详细地址',
+  `receiver_phone` varchar(100) DEFAULT NULL COMMENT '手机',
+  `total_amount` decimal(12,0) NOT NULL COMMENT '总金额',
+  `pay_amount` decimal(12,0) DEFAULT NULL COMMENT '实际支付金额',
+  `freight_amount` decimal(12,0) DEFAULT NULL COMMENT '运费金额',
+  `integration_amount` decimal(12,0) DEFAULT NULL COMMENT '积分抵扣金额',
+  `coupon_amount` decimal(12,0) DEFAULT NULL COMMENT '优惠券抵扣金额',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `expire_time` datetime NOT NULL COMMENT '过期时间',
+  `integration` bigint NOT NULL COMMENT '可获取的积分',
+  `memo` varchar(255) DEFAULT NULL COMMENT '备注',
+  `status` int NOT NULL COMMENT '订单状态，1：待付款，2：待发货，3：待收货，4：已完成',
+  `member_id` bigint NOT NULL COMMENT '会员ID',
+  `bill_type` int DEFAULT NULL COMMENT '发票类型：0->不开发票；1->电子发票；2->纸质发票',
+  `bill_header` varchar(200) DEFAULT NULL COMMENT '发票抬头',
+  `bill_content` varchar(200) DEFAULT NULL COMMENT '发票内容',
+  `bill_receiver_phone` varchar(32) DEFAULT NULL COMMENT '收票人电话',
+  `bill_receiver_email` varchar(64) DEFAULT NULL COMMENT '收票人邮箱',
+  `order_type` int DEFAULT NULL COMMENT '订单类型：0->正常订单；1->秒杀订单',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_order_sn` (`order_sn`) USING BTREE,
+  KEY `idx_member_id` (`member_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单详情';
+
+
+
+
+CREATE TABLE `oms_cart_t0` (
+  `id` bigint NOT NULL  COMMENT 'ID',
+  `spu_id` bigint NOT NULL COMMENT '商品ID',
+  `sku_id` bigint NOT NULL COMMENT '产品ID',
+  `quantity` int NOT NULL COMMENT '数量',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  `create_time` varchar(50) NOT NULL COMMENT '创建时间年月2022-5',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='购物车';
+
+CREATE TABLE `oms_cart_t1` (
+  `id` bigint NOT NULL  COMMENT 'ID',
+  `spu_id` bigint NOT NULL COMMENT '商品ID',
+  `sku_id` bigint NOT NULL COMMENT '产品ID',
+  `quantity` int NOT NULL COMMENT '数量',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  `create_time` varchar(50) NOT NULL COMMENT '创建时间年月2022-5',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='购物车';
+
+CREATE TABLE `oms_cart_t2` (
+  `id` bigint NOT NULL  COMMENT 'ID',
+  `spu_id` bigint NOT NULL COMMENT '商品ID',
+  `sku_id` bigint NOT NULL COMMENT '产品ID',
+  `quantity` int NOT NULL COMMENT '数量',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  `create_time` varchar(50) NOT NULL COMMENT '创建时间年月2022-5',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='购物车';
+
+
+CREATE TABLE `oms_cart_t3` (
+  `id` bigint NOT NULL  COMMENT 'ID',
+  `spu_id` bigint NOT NULL COMMENT '商品ID',
+  `sku_id` bigint NOT NULL COMMENT '产品ID',
+  `quantity` int NOT NULL COMMENT '数量',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  `create_time` varchar(50) NOT NULL COMMENT '创建时间年月2022-5',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='购物车';
+
+
+CREATE TABLE `oms_order_base_t` (
+  `id` bigint NOT NULL COMMENT 'ID',
+  `attr_1` varchar(200) DEFAULT NULL COMMENT '基础属性',
+  `attr_2` varchar(200) DEFAULT NULL COMMENT '基础属性',
+  `attr_3` varchar(200) DEFAULT NULL COMMENT '基础属性',
+  `attr_4` varchar(200) DEFAULT NULL COMMENT '基础属性',
+  `attr_5` varchar(200) DEFAULT NULL COMMENT '基础属性',
+  `name` varchar(255) DEFAULT NULL COMMENT '加密测试',
+  `pwd` varchar(255) DEFAULT NULL COMMENT '加密测试',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='广播表';
+
+delete from oms_order_detail0;
+delete from oms_order_detail1;
+delete from oms_order_detail2;
+delete from oms_order_detail3;
+
+delete from oms_order_item_t0;
+delete from oms_order_item_t1;
+delete from oms_order_item_t2;
+delete from oms_order_item_t3;
+
+delete from oms_cart_t0;
+delete from oms_cart_t1;
+delete from oms_cart_t2;
+delete from oms_cart_t3;
+
+delete from oms_order_base_t;

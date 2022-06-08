@@ -1,0 +1,48 @@
+# spring
+spring:
+  data:
+    mongodb:
+      uri: mongodb://test:123456@10.207.0.164:27017/test?authSource=test&connectTimeoutMS=5000
+      option:
+        #连接池最小连接数
+        min-connection-per-host: 0
+        #对mongo实例来说，每个host允许链接的最大链接数,这些链接空闲时会放入池中,如果链接被耗尽，任何请求链接的操作会被阻塞等待链接可用,推荐配置10
+        max-connection-per-host: 10
+        #线程队列数，此值和连接池的乘积为最大连接数，超出这个数会让请求线程等待
+        threads-allowed-to-block-for-connection-multiplier: 5
+        #单位为ms，默认0，无限时间，客户端访问服务器的超时时间
+        server-selection-timeout: 30000
+        #一个线程等待链接可用的最大等待毫秒数，0表示不等待，负数表示等待时间不确定，推荐配置120000
+        max-wait-time: 120000
+        #线程最大空闲时间，默认0，无限制
+        max-connection-idle-time: 60000
+        #线程的生命时间
+        max-connection-life-time: 0
+        #链接超时的毫秒数,0表示不超时,此参数只用在新建一个新链接时，推荐配置10,000
+        connect-timeout: 10000
+        #客户端连接到数据库后，等待数据返回的最大等待时间，默认为0，无限制
+        #此参数表示socket I/O读写超时时间,推荐为不超时，即 0    Socket.setSoTimeout(int)
+        socket-timeout: 60000
+        #keep alive标志，默认false
+        socket-keep-alive: true
+        #驱动是否使用ssl进行连接，默认是false
+        ssl-enabled: false
+        #定义是否允许使用无效的主机名
+        ssl-invalid-host-name-allowed: false
+        #设置由驱动程序注册的JMX bean是否应该始终是mbean，而不管VM是Java 6还是更大
+        always-use-m-beans: false
+        #集群心跳连接的socket超时时间
+        heartbeat-socket-timeout: 20000
+        #集群心跳连接的超时时间
+        heartbeat-connect-timeout: 20000
+        #驱动重新检查服务器状态最少等待时间
+        min-heartbeat-frequency: 500
+        #驱动用来确保集群中服务器状态的心跳频率
+        heartbeat-frequency: 10000
+        #设置本地阈值
+        local-threshold: 15
+
+# 配置MongoTemplate的执⾏⽇志
+logging:
+  level:
+    org.springframework.data.mongodb.core: debug

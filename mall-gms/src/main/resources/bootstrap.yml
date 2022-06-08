@@ -1,0 +1,9 @@
+server:
+    port: 18084
+spring:
+  application:
+    name: gms-server
+  profiles:
+    active: local
+    #include: AllNacos,AllDB-gms,AllMybatisPlus,AllRedis
+    include: AllNacos,AllMybatisPlus,AllRedis,readWriter

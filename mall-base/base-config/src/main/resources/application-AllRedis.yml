@@ -1,0 +1,30 @@
+spring:
+  redis:
+    database: ${env.redis.database}
+    host: ${env.redis.host}
+    port: ${env.redis.port}
+    timeout: ${env.redis.timeout}
+#    lettuce:
+#      pool:
+#        max-wait: ${env.redis.lettuce.pool.max-wait}
+#        max-idle: ${env.redis.lettuce.pool.max-idle}
+#        min-idle: ${env.redis.lettuce.pool.min-idle}
+#        max-active: ${env.redis.lettuce.pool.max-active}
+#  cache:
+#    type: ${env.cache.type}
+#    redis:
+#       cache-null-values: ${env.cache.redis.cache-null-values}
+#       time-to-live: ${env.cache.redis.time-to-live}
+#       use-key-prefix: ${env.cache.redis.use-key-prefix}
+
+
+mall:
+  # 缓存开关
+  cache:
+    redis: true
+    redisson: true
+  # redisson策略（有且仅有一个true）
+  redisson:
+    single: true
+    cluster:
+    sentinel:

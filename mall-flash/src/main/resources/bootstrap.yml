@@ -1,0 +1,17 @@
+server:
+    port: 18090
+spring:
+  application:
+    name: flash-server
+  profiles:
+    active: local,redis
+    include: AllNacos,AllDB-flash,AllMybatisPlus,AllRedis
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:17080
+      web-context-unify: false
+feign:
+  sentinel:
+    enabled: true

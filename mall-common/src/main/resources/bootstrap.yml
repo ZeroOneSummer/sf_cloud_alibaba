@@ -1,0 +1,8 @@
+server:
+  port: 18091
+spring:
+  application:
+    name: common-server
+  profiles:
+    active: local
+    include: AllNacos,AllRedis

@@ -1,0 +1,8 @@
+server:
+    port: 18085
+spring:
+  application:
+    name: minio-server
+  profiles:
+    active: local
+    include: AllNacos,AllDB,AllMybatisPlus

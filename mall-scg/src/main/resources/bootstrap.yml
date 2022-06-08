@@ -1,0 +1,8 @@
+server:
+    port: 18088
+spring:
+  application:
+    name: scg-server
+  profiles:
+    active: local,redis,mongo
+    include: AllNacos,AllDB,AllMybatisPlus,AllRedis

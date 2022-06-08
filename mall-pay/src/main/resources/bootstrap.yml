@@ -1,0 +1,8 @@
+server:
+    port: 18087
+spring:
+  application:
+    name: pay-server
+  profiles:
+    active: local
+    include: AllNacos,AllDB-pay,AllMybatisPlus

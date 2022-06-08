@@ -1,0 +1,9 @@
+server:
+    port: 18083
+spring:
+  application:
+    name: cms-server
+  profiles:
+    active: local
+    #include: AllNacos,AllDB-cms,AllMybatisPlus,AllRedis
+    include: AllNacos,AllMybatisPlus,AllRedis,readWriter

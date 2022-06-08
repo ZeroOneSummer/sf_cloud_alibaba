@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.formssi.mall.goods.infrastructure.repository.mapper.GmsSpuSpecMapper">
+
+    <resultMap id="spcSpec" type="com.formssi.mall.goods.domain.repository.po.GmsSpuSpecAndValuePO">
+        <result column="catalog_id" property="catalogId"/>
+        <result column="spec_name" property="specName"/>
+        <result column="spec_id" property="specId"/>
+        <result column="spec_value" property="specValue"/>
+        <result column="vid" property="vid"/>
+    </resultMap>
+
+    <select id="listSpuSpecPage" resultType="com.formssi.mall.goods.domain.repository.po.GmsSpuSpecAndValuePO"
+            resultMap="spcSpec">
+        select gss.*,gssv.id as vid,gssv.spec_id, gssv.spec_value, gssv.spec_image from gms_spu_spec gss left join gms_spu_spec_value gssv on gss.id = gssv.spec_id
+        <where>
+            <if test="catalogId != null">
+                and gss.catalog_id = #{catalogId}
+            </if>
+            <if test="specName != null">
+                and gss.spec_name like CONCAT('%',#{specName},'%')
+            </if>
+            <if test="status != null">
+                and gss.status = #{status}
+            </if>
+            and gss.id limit #{current},#{size};
+        </where>
+    </select>
+    <select id="getCount" resultType="java.lang.Long">
+        select count(id) from gms_spu_spec
+    </select>
+
+</mapper>

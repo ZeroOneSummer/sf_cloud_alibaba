@@ -1,0 +1,45 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    gateway:
+      routes:
+        - id: bms-server
+          uri: lb://bms-server
+          predicates:
+            - Path=/bms/**
+        - id: fms-server
+          uri: lb://fms-server
+          predicates:
+            - Path=/fms/**
+        - id: gms-server
+          uri: lb://gms-server
+          predicates:
+            - Path=/gms/**
+        - id: minio-server
+          uri: lb://minio-server
+          predicates:
+            - Path=/minio/**
+        - id: oms-server
+          uri: lb://oms-server
+          predicates:
+            - Path=/oms/**
+        - id: flash-server
+          uri: lb://flash-server
+          predicates:
+            - Path=/flash/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                # 令牌桶每秒填充平均速率
+                redis-rate-limiter.replenishRate: 1
+                # 令牌桶的上限
+                redis-rate-limiter.burstCapacity: 2
+                # 使用SpEL表达式从Spring容器中获取Bean对象
+                key-resolver: "#{@pathKeyResolver}"
+mall:
+  ignore:
+    paths:
+      - "/**/getCaptcha"
+      - "/**/login"
+      - "/**/listActs"

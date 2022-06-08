@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.formssi.mall.sharding.mapper.OmsOrderItemMapper">
+
+    <resultMap id="OmsOrderItemDetailMap" type="com.formssi.mall.sharding.DTO.OmsOrderItemDetail">
+        <result column="id" property="id"/>
+        <result column="order_id" property="orderId"/>
+        <result column="order_sn" property="orderSn"/>
+        <result column="spu_sn" property="spuSn"/>
+        <result column="total_amount" property="totalAmount"/>
+        <result column="status" property="status"/>
+    </resultMap>
+    <select id="findOrderAndDetailByUserId" resultMap="OmsOrderItemDetailMap">
+        select item.id, item.order_id, item.order_sn,item.spu_sn, detail.total_amount, detail.status
+        from oms_order_item_t item
+        INNER JOIN oms_order_detail detail ON detail.order_id = item.order_id
+        where item.user_id = #{userId}
+    </select>
+
+    <select id="findOrderAndDetailByOrderId" resultMap="OmsOrderItemDetailMap">
+        select item.id, item.order_id, item.order_sn,item.spu_sn, detail.total_amount, detail.status
+        from oms_order_item_t item
+        INNER JOIN oms_order_detail detail ON detail.order_id = item.order_id
+        where item.order_id = #{orderId}
+    </select>
+
+    <select id="findOrderAndDetailByuserIDAndOrderId" resultMap="OmsOrderItemDetailMap">
+        select item.id, item.order_id, item.order_sn,item.spu_sn, detail.total_amount, detail.status
+        from oms_order_item_t item
+                 INNER JOIN oms_order_detail detail ON detail.order_id = item.order_id
+        where item.user_id = #{userId} and item.order_id = #{orderId}
+    </select>
+
+    <select id="findOrderAndDetailAll" resultMap="OmsOrderItemDetailMap">
+        select item.id, item.order_id, item.order_sn,item.spu_sn, detail.total_amount, detail.status
+        from oms_order_item_t item
+                 INNER JOIN oms_order_detail detail ON detail.order_id = item.order_id
+    </select>
+
+    <select id="findOrderAndDetailPage" resultMap="OmsOrderItemDetailMap">
+        select item.id, item.order_id, item.order_sn,item.spu_sn, detail.total_amount, detail.status
+        from oms_order_item_t item
+                 INNER JOIN oms_order_detail detail ON detail.order_id = item.order_id
+        where 1=1
+        limit #{startSize},#{endSize}
+    </select>
+
+    <select id="findOrderAndDetailByUserIdPage" resultMap="OmsOrderItemDetailMap">
+        select item.id, item.order_id, item.order_sn,item.spu_sn, detail.total_amount, detail.status
+        from oms_order_item_t item
+        INNER JOIN oms_order_detail detail ON detail.order_id = item.order_id
+        where item.user_id = #{userId}
+        limit #{startSize},#{endSize}
+    </select>
+
+
+
+</mapper>

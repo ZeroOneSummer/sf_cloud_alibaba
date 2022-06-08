@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: ${env.nacos.server-addr}
+      discovery:
+        enabled: true
+        server-addr: ${env.nacos.server-addr}

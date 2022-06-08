@@ -1,0 +1,8 @@
+server:
+    port: 18089
+spring:
+  application:
+    name: flash-server
+  profiles:
+    active: local
+    include: AllNacos,AllDB,AllMybatisPlus

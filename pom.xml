@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.formssi.mall</groupId>
+    <artifactId>mall-master</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>mall-api</module>
+        <module>mall-base</module>
+        <module>mall-ums</module>
+        <module>mall-cms</module>
+        <module>mall-gms</module>
+        <module>mall-oms</module>
+        <module>mall-auth</module>
+        <module>mall-pay</module>
+        <module>mall-scg</module>
+        <module>mall-minio</module>
+        <module>mall-search</module>
+        <module>mall-flash</module>
+        <module>mall-common</module>
+        <module>mall-mq</module>
+        <module>mall-xxlJob</module>
+        <module>mall-sharding</module>
+        <module>mall-test</module>
+        <module>mall-seata</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <mall-version>1.0.0-SNAPSHOT</mall-version>
+        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
+        <spring.cloud-version>Hoxton.SR12</spring.cloud-version>
+        <spring.cloud.alibaba-version>2.2.6.RELEASE</spring.cloud.alibaba-version>
+        <alibaba.druid-version>1.2.8</alibaba.druid-version>
+        <spring.boot.mongodb-data-version>2.3.12.RELEASE</spring.boot.mongodb-data-version>
+        <spring.boot.redis-data-version>2.3.12.RELEASE</spring.boot.redis-data-version>
+        <spring.boot.redis-pool-version>2.6.2</spring.boot.redis-pool-version>
+        <shiro.spring-version>1.7.0</shiro.spring-version>
+        <java-jwt-version>3.7.0</java-jwt-version>
+        <okhttp-version>4.8.1</okhttp-version>
+        <minio-version>8.3.5</minio-version>
+        <spring.cloud.discovery-version>2.2.2.RELEASE</spring.cloud.discovery-version>
+        <lombok-version>1.18.10</lombok-version>
+        <spring.cloud.gateway-version>2.2.3.RELEASE</spring.cloud.gateway-version>
+        <nimbus.jose.jwt-version>9.15.2</nimbus.jose.jwt-version>
+        <alibaba.fastjson>1.2.79</alibaba.fastjson>
+        <spring.rabbitmq-version>2.6.3</spring.rabbitmq-version>
+        <mybatis.plus.boot-version>3.5.1</mybatis.plus.boot-version>
+        <xxl-job-core-version>2.3.1</xxl-job-core-version>
+        <wechatpay-version>0.4.5</wechatpay-version>
+        <hutool-version>5.7.21</hutool-version>
+        <alipay-version>4.23.0.ALL</alipay-version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.test.skip>true</maven.test.skip>
+        <netty-all.version>4.1.50.Final</netty-all.version>
+        <gson.version>2.8.6</gson.version>
+        <spring.version>5.2.7.RELEASE</spring.version>
+        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <mybatis-spring-boot-starter.version>2.1.3</mybatis-spring-boot-starter.version>
+        <mysql-connector-java.version>8.0.20</mysql-connector-java.version>
+        <slf4j-api.version>1.7.30</slf4j-api.version>
+        <junit.version>4.13</junit.version>
+        <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+        <groovy.version>3.0.4</groovy.version>
+        <!-- xxl-job-core 作为依赖引入 -->
+        <xxl-job-core-version>2.3.0</xxl-job-core-version>
+        <lombok.version>1.16.22</lombok.version>
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <maven-war-plugin.version>3.3.0</maven-war-plugin.version>
+        <!--   knife4j api可视化     -->
+        <knife4j.version>2.0.9</knife4j.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok-version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>${spring.boot.mongodb-data-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring.boot.redis-data-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${spring.boot.redis-pool-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${alibaba.fastjson}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring.cloud.gateway-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus.jose.jwt-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${alibaba.druid-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.boot-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis.plus.boot-version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job-core-version}</version>
+            </dependency>
+            <!-- 微信支付 -->
+            <dependency>
+                <groupId>com.github.wechatpay-apiv3</groupId>
+                <artifactId>wechatpay-apache-httpclient</artifactId>
+                <version>${wechatpay-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <!--阿里支付-->
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-sdk-java</artifactId>
+                <version>${alipay-version}</version>
+            </dependency>
+            <!--   knife4j         -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <!--    <distributionManagement>-->
+    <!--        <repository>-->
+    <!--            <id>maven-releases</id>-->
+    <!--            <name>Nexus Release Repository</name>-->
+    <!--            <url>http://10.207.0.162:8081/nexus/repository/maven-releases/</url>-->
+    <!--        </repository>-->
+    <!--        <snapshotRepository>-->
+    <!--            <id>maven-snapshots</id>-->
+    <!--            <name>Nexus Snapshot Repository</name>-->
+    <!--            <url>http://10.207.0.162:8081/nexus/repository/maven-snapshots/</url>-->
+    <!--        </snapshotRepository>-->
+    <!--    </distributionManagement>-->
+
+</project>

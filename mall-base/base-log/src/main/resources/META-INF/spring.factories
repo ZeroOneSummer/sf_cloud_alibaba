@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.formssi.mall.log.framework.aspectj.LogAspect,\
+  com.formssi.mall.log.framework.config.WebConfig,\
+  com.formssi.mall.log.framework.interceptor.FeignInterceptor
+

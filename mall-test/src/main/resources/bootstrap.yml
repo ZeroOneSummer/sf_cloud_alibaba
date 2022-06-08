@@ -1,0 +1,28 @@
+server:
+  port: 8010
+  servlet:
+    context-path: /test
+spring:
+  application:
+    name: test
+  cloud:
+    nacos:
+      #注冊中心地址
+      server-addr: 106.12.146.239:8848
+    config:
+      server-addr: 106.12.146.239:8848
+      # 配置中心-指定命名空间
+      namespace: bb79a8c4-e4e1-4a27-bceb-0810f278b5aa
+      # 指定配置文件后缀
+      file-extension: yaml
+      #配置组
+      group: DEFAULT_GROUP
+      #配置dateId
+      data-id: lc-gateway
+      #获取配置超时时间
+      timeout: 5000
+    gateway:
+      #设置超时时间默认
+      httpclient:
+        connect-timeout: 1000
+        response-timeout: 5s

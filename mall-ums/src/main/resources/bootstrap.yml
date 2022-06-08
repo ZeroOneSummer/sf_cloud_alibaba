@@ -1,0 +1,9 @@
+server:
+    port: 18082
+spring:
+  application:
+    name: ums-server
+  profiles:
+    active: local,redis
+    #include: AllNacos,AllDB-ums,AllMybatisPlus,AllRedis
+    include: AllNacos,AllMybatisPlus,AllRedis,readWriter

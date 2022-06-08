@@ -1,0 +1,8 @@
+server:
+    port: 18086
+spring:
+  application:
+    name: oms-server
+  profiles:
+    active: local
+    include: AllNacos,AllDB-oms,AllMybatisPlus,AllRedis

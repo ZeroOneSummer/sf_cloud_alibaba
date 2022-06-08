@@ -1,0 +1,23 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  flyway:
+    locations: classpath:db/oms
+  elasticsearch:
+    rest:
+      uris: 127.0.0.1:9200
+  data:
+    elasticsearch: #ElasticsearchProperties
+      cluster-name: elasticsearch #默认即为elasticsearch
+      cluster-nodes: 127.0.0.1:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+
+rocketmq:
+  oms-order-topic: Pay_Topic
+  consumer-group: Pay_Topic_Group
+  name-server: 10.207.0.164:9876
+  producer:
+    group: Order_Group_01
+
+
+
+

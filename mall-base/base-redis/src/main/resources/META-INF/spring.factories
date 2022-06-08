@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.formssi.mall.redis.config.RedisConfig,\
+com.formssi.mall.redis.config.RedissonConfig

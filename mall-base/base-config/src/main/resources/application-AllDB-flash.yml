@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: ${env.datasource.driver-class-name}
+    url: ${env.datasource.flash.url}
+    username: ${env.datasource.flash.username}
+    password: ${env.datasource.flash.password}

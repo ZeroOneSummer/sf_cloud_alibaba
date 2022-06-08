@@ -1,0 +1,32 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  mail:
+    host: "smtphz.qiye.163.com"
+    port: 25
+    username:
+    password:
+    default-encoding: utf-8
+    properties: # 设置邮件超时时间防止服务器阻塞
+      timeout: 5000
+      connection-timeout: 5000
+      write-timeout: 5000
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+    prefix: classpath:/templates/
+    suffix: .html
+  cache:
+    type: redis                 #缓存类型
+    redis:
+      cache-null-values: false  #不缓存null数据
+      time-to-live: 60000ms     #过期时间
+      use-key-prefix: false     #不适用前缀
+
+mall:
+  sms:
+    signName: # 短信签名
+    templateCode: # 短信模板编号
+    templateCodeBatch: # 批量发送短信模板编号
+    accessKey: # AccessKey ID
+    secret: # AccessKey Secret
